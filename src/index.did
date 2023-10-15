@@ -1,0 +1,32 @@
+type Task = record {
+  id : text;
+  status : text;
+  title : text;
+  updated_at : opt nat64;
+  creator : principal;
+  tags : vec text;
+  description : text;
+  assigned_to : text;
+  due_date : text;
+  created_date : nat64;
+};
+type TaskPayload = record {
+  title : text;
+  description : text;
+  assigned_to : text;
+  due_date : text;
+};
+type _AzleResult = variant { Ok : Task; Err : text };
+type _AzleResult_1 = variant { Ok : vec Task; Err : text };
+service : () -> {
+  addTags : (text, vec text) -> (_AzleResult);
+  addTask : (TaskPayload) -> (_AzleResult);
+  completedTask : (text) -> (_AzleResult);
+  deleteTask : (text) -> (_AzleResult);
+  getInitialTasks : () -> (_AzleResult_1) query;
+  getTask : (text) -> (_AzleResult) query;
+  getTaskByTags : (text) -> (_AzleResult_1) query;
+  loadMoreTasks : (float64, float64) -> (_AzleResult_1) query;
+  searchTasks : (text) -> (_AzleResult_1) query;
+  updateTask : (text, TaskPayload) -> (_AzleResult);
+}

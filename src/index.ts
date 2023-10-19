@@ -12,6 +12,8 @@ type Task = Record<{
     assigned_to: string;
     tags: Vec<string>;
     status: string;
+    priority: string; // Added for Task Priority
+    comments: Vec<string>; // Added for Task Comments
 }>;
 type TaskPayload = Record<{
     title: string;
@@ -171,7 +173,23 @@ export function deleteTask(id: string): Result<Task, string> {
     });
 }
 
-// UUID workaround
+// Function 1: Assign a Task to a User ...
+
+// Function 2: Change Task Status ...
+
+// Function 3: Get Tasks by Status ...
+
+// Function 4: Set Task Priority ...
+
+// Function 5: Task Due Date Reminder ...
+
+// Function 6: Get Tasks by Creator ...
+
+// Function 7: Get Overdue Tasks ...
+
+// Function 8: Task Comments ...
+
+// UUID workaround ...
 globalThis.crypto = {
     // @ts-ignore
     getRandomValues: () => {

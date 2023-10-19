@@ -27,6 +27,15 @@ To use the Azle Task Management System, you need to have an Azle (DFINITY) accou
 - **Adding Tags:** For task creators, use the `addTags(id, tags)` update function to add tags to a task.
 - **Task Modification:** The `updateTask(id, payload)` update function allows task creators to modify task details.
 - **Task Deletion:** To delete a task, use the `deleteTask(id)` update function, but note that only the task's creator can delete it.
+- **Assign Task:** To assign a task to a user, use the `assignTask(id,assignedTo)` update function, but note that only the task's creator can assign it.
+- **Change Task Status:** To change the Task Status, use the `changeTaskStatus(id,newStatus)` update function, but note that only the task's creator can change it.
+- **Get Task by Status:** To get Task by Status, use the `getTasksByStatus(status)` query function, but note that only the task's creator can change it.
+- **Set Task by Priority:** To set Task by Priority, use the `setTaskPriority(id,priority)` update function, but note that only the task's creator can change it.
+- **Send due date Reminder:** To send Due Date Reminder, use the `sendDueDateReminder(status)` update function, but note that only the task's creator can change it.
+ **Get Tasks by Creator:** To get Task by Creator, use the `getTasksByCreator(creator)` query function.
+ **Get Overdue Tasks:** To get Overdue Tasks, use the `getOverdueTasks()` query function.
+- **Add Task Comment:** To send Due Date Reminder, use the `addTaskComment(id, comment)` update function.
+
 
 ## Installation
 

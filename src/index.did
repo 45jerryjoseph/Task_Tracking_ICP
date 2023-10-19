@@ -8,6 +8,8 @@ type Task = record {
   description : text;
   assigned_to : text;
   due_date : text;
+  priority : text;
+  comments : vec text;
   created_date : nat64;
 };
 type TaskPayload = record {

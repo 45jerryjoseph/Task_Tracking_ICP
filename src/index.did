@@ -20,15 +20,24 @@ type TaskPayload = record {
 };
 type _AzleResult = variant { Ok : Task; Err : text };
 type _AzleResult_1 = variant { Ok : vec Task; Err : text };
+type _AzleResult_2 = variant { Ok : text; Err : text };
 service : () -> {
   addTags : (text, vec text) -> (_AzleResult);
   addTask : (TaskPayload) -> (_AzleResult);
+  addTaskComment : (text, text) -> (_AzleResult);
+  assignTask : (text, text) -> (_AzleResult);
+  changeTaskStatus : (text, text) -> (_AzleResult);
   completedTask : (text) -> (_AzleResult);
   deleteTask : (text) -> (_AzleResult);
   getInitialTasks : () -> (_AzleResult_1) query;
+  getOverdueTasks : () -> (_AzleResult_1) query;
   getTask : (text) -> (_AzleResult) query;
   getTaskByTags : (text) -> (_AzleResult_1) query;
+  getTasksByCreator : (principal) -> (_AzleResult_1) query;
+  getTasksByStatus : (text) -> (_AzleResult_1) query;
   loadMoreTasks : (float64, float64) -> (_AzleResult_1) query;
   searchTasks : (text) -> (_AzleResult_1) query;
+  sendDueDateReminder : (text) -> (_AzleResult_2);
+  setTaskPriority : (text, text) -> (_AzleResult);
   updateTask : (text, TaskPayload) -> (_AzleResult);
 }
